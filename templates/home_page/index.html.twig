@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Мои Финансы{% endblock %}
+
+{% block body %}
+<style>
+
+    .dashboard {
+        display: grid;
+        grid-template-columns: 2fr 2fr;
+        gap: 1.5rem;
+        padding: 2rem;
+    }
+    .card {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .transactions, .goals {
+        grid-column: 1 / -1;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 0.75rem;
+        border-bottom: 1px solid #ddd;
+        text-align: center;
+    }
+
+</style>
+
+    <main class="dashboard">
+        <div class="card">
+            <h3>Доходы и расходы (Июль)</h3>
+            <p>Доход: +{{ income }} ₽</p>
+            <p>Расход: –{{ expense }} ₽</p>
+            <p>Прогноз: 📈</p>
+        </div>
+
+        <div class="card">
+            <h3>Цели</h3>
+            <p>🚗 Авто: 45,000 ₽ / 150,000 ₽ (30%)</p>
+            <p>🏖️ Отпуск: 20,000 ₽ / 50,000 ₽ (40%)</p>
+            <button>+ Добавить цель</button>
+        </div>
+
+        <div class="card transactions">
+            <h3>Последние транзакции</h3>
+            <table>
+                <tr><th>Дата</th><th>Категория</th><th>Описание</th><th>Сумма</th></tr>
+                <tr><td>18.07.25</td><td>Еда</td><td>Кофе</td><td>–250 ₽</td></tr>
+                <tr><td>17.07.25</td><td>Доход</td><td>Зарплата</td><td>+65,000 ₽</td></tr>
+                <tr><td>16.07.25</td><td>Транспорт</td><td>Метро</td><td>–45 ₽</td></tr>
+            </table>
+        </div>
+
+
+    </main>
+
+{#   {% for value in transaction %}#}
+{#        <li>{{ value.description }}</li>#}
+{#    {% endfor %}#}
+
+{% endblock %}
